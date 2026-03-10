@@ -28,7 +28,8 @@ autocmd User LspSetup call LspAddServer(lspServers)
 nnoremap gd :LspGotoDefinition<CR>
 nnoremap gr :LspShowReferences<CR>
 nnoremap K  :LspHover<CR>
-nnoremap gl :LspDiag current<CR>
+nnoremap ld :LspDiag current<CR>
+nnoremap ca :LspCodeAction<CR>
 nnoremap <leader>nd :LspDiag next \| LspDiag current<CR>
 nnoremap <leader>pd :LspDiag prev \| LspDiag current<CR>
 inoremap <silent> <C-Space> <C-x><C-o>
