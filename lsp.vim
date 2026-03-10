@@ -1,20 +1,26 @@
 " Enable diagnostics highlighting
 let lspOpts = #{autoHighlightDiags: v:true}
 autocmd User LspSetup call LspOptionsSet(lspOpts)
-let lspServers = [
-      \ #{
-      \   name: 'clangd',
-      \   filetype: ['c', 'cpp'],
-      \   path: 'clangd',
-      \   args: []
-      \ },
-      \ #{
-      \   name: 'typescriptlang',
-      \   filetype: ['javascript', 'typescript'],
-      \   path: 'typescript-language-server',
-      \   args: []
-      \ }
-      \ ]
+
+let lspServers = []
+
+if executable('clangd')
+    call add(lspServers, #{
+                \ name: 'clangd',
+                \ filetype: ['c', 'cpp'],
+                \ path: 'clangd',
+                \ args: []
+                \ })
+endif
+
+if executable('typescript-language-server')
+    call add(lspServers, #{
+                \ name: 'typescriptlang',
+                \ filetype: ['javascript', 'typescript'],
+                \ path: 'typescript-language-server',
+                \ args: []
+                \ })
+endif
 
 autocmd User LspSetup call LspAddServer(lspServers)
 
