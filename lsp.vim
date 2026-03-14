@@ -22,6 +22,15 @@ if executable('typescript-language-server')
                 \ })
 endif
 
+if executable('jdtls')
+    call add(lspServers, #{
+                \ name: 'jdtls',
+                \ filetype: ['java'],
+                \ path: 'jdtls',
+                \ args: []
+                \ })
+endif
+
 autocmd User LspSetup call LspAddServer(lspServers)
 
 " Key mappings
