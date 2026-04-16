@@ -20,4 +20,5 @@ call s:ensure("junegunn/fzf.vim")
 call s:ensure("itchyny/lightline.vim")
 call s:ensure("yegappan/lsp")
 call s:ensure("iamcco/markdown-preview.nvim")
+call s:ensure("tpope/vim-speeddating")
 
