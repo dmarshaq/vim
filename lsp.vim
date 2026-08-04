@@ -31,6 +31,24 @@ if executable('jdtls')
                 \ })
 endif
 
+if executable('pyright-langserver')
+    call add(lspServers, #{
+                \ name: 'pyright',
+                \ filetype: ['python'],
+                \ path: 'pyright-langserver',
+                \ args: ['--stdio']
+                \ })
+endif
+
+if executable('ruff')
+    call add(lspServers, #{
+                \ name: 'ruff',
+                \ filetype: ['python'],
+                \ path: 'ruff',
+                \ args: ['server']
+                \ })
+endif
+
 autocmd User LspSetup call LspAddServer(lspServers)
 
 " Key mappings
