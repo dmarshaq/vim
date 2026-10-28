@@ -5,13 +5,13 @@ function! s:ensure(repo)
     let path = s:plugin_dir . '/' . name
 
     if !isdirectory(path)
-        if !isdirectory(plugin_dir)
+        if !isdirectory(s:plugin_dir)
             call mkdir(s:plugin_dir, 'p')
         endif
         execute "!git clone --depth=1 https://github.com/" . a:repo . ' ' . shellescape(path)
     endif
 
-    execute "set runtimepath+=" . fnameescape(path)
+    execute "set runtimepath^=" . fnameescape(path)
 endfunction
 
 call s:ensure("m6vrm/gruber.vim")
@@ -21,4 +21,5 @@ call s:ensure("itchyny/lightline.vim")
 call s:ensure("yegappan/lsp")
 call s:ensure("iamcco/markdown-preview.nvim")
 call s:ensure("tpope/vim-speeddating")
+call s:ensure("lervag/vimtex")
 

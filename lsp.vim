@@ -49,6 +49,15 @@ if executable('ruff')
                 \ })
 endif
 
+if executable('texlab')
+    call add(lspServers, #{
+                \ name: 'texlab',
+                \ filetype: ['tex', 'bib'],
+                \ path: 'texlab',
+                \ args: []
+                \ })
+endif
+
 autocmd User LspSetup call LspAddServer(lspServers)
 
 " Key mappings
