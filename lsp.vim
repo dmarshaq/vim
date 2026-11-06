@@ -58,6 +58,15 @@ if executable('texlab')
                 \ })
 endif
 
+if executable('verible-verilog-ls')
+    call add(lspServers, #{
+                \ name: 'verible',
+                \ filetype: ['v'],
+                \ path: 'verible-verilog-ls',
+                \ args: []
+                \ })
+endif
+
 autocmd User LspSetup call LspAddServer(lspServers)
 
 " Key mappings
