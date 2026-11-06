@@ -61,7 +61,7 @@ endif
 if executable('verible-verilog-ls')
     call add(lspServers, #{
                 \ name: 'verible',
-                \ filetype: ['v'],
+                \ filetype: ['verilog', 'systemverilog'],
                 \ path: 'verible-verilog-ls',
                 \ args: []
                 \ })
